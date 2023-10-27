@@ -138,4 +138,23 @@ public class TestDemo {
 
     }
 
+    @Test
+
+    public void testCountEvenNumbersBetween1And10(){
+        int expectedEvenNumbers = 4;
+        int actualEvenNumbers= 0;
+
+        for(int i=1; i<=10; i++){
+            if( i % 2 == 0){
+                actualEvenNumbers ++;
+            }
+        }
+        Assert.assertTrue(
+                actualEvenNumbers == expectedEvenNumbers,
+                "\nValues expected to be equals" +
+                        ("\n\tActual: %s" +
+                        "\n\tExpected: %s").formatted(actualEvenNumbers, expectedEvenNumbers)
+        );
+    }
+
     }
