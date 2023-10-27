@@ -113,4 +113,29 @@ public class TestDemo {
 
 
     }
-}
+    @Test
+    public void testWait5Sec(){
+
+        long startMillis;
+        long endMillis;
+        int expectedSec = 5;
+        int actualSec;
+
+        startMillis = System.currentTimeMillis();
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        endMillis = System.currentTimeMillis();
+
+        actualSec = (int) ((endMillis - startMillis)/1000);
+
+        Assert.assertEquals(actualSec, expectedSec);
+
+
+    }
+
+    }
