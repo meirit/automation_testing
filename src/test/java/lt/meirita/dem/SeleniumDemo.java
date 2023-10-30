@@ -17,6 +17,8 @@ public class SeleniumDemo {
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.autobusubilietai.lt/");
 
+
+
         try {
             Thread.sleep(4000);
         } catch (InterruptedException e) {
