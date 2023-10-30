@@ -35,13 +35,16 @@ public class SeleniumEasyBasicFirstForm {
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        WebElement inputUserMessage = driver.findElement(By.id("user-message"));
+//        WebElement inputUserMessage = driver.findElement(By.id("user-message"));
+        WebElement inputUserMessage = driver.findElement(By.xpath("//input[@id='user-message']"));
         inputUserMessage.sendKeys(inputMessage);
 
-        WebElement showMesssage =driver.findElement(By.className("btn-primary"));
+//        WebElement showMesssage =driver.findElement(By.className("btn-primary"));
+        WebElement showMesssage =driver.findElement(By.xpath("//button[@onclick='showInput();']"));
         showMesssage.click();
 
-        WebElement displayMessage = driver.findElement(By.id("display"));
+//        WebElement displayMessage = driver.findElement(By.id("display"));
+        WebElement displayMessage = driver.findElement(By.xpath("//div[@id='user-message']//span"));
         actualMessage = displayMessage.getText();
 
         Assert.assertTrue(
