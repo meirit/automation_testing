@@ -44,10 +44,12 @@ public class DemoQATextBox {
 //        executor.executeScript("document.body.style.zoom = '0.75'");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        WebElement inputfullName = driver.findElement(By.id("userName"));
+//        WebElement inputfullName = driver.findElement(By.id("userName"));
+        WebElement inputfullName = driver.findElement(By.xpath("//input[@id='userName']"));
         inputfullName.sendKeys(userName);
 
-        WebElement inputEmail = driver.findElement(By.id("userEmail"));
+//        WebElement inputEmail = driver.findElement(By.id("userEmail"));
+        WebElement inputEmail = driver.findElement(By.xpath("//input[@id='userEmail']"));
         inputEmail.sendKeys(email);
 
 //        try {
@@ -56,13 +58,15 @@ public class DemoQATextBox {
 //            e.printStackTrace();
 //        }
 
-        WebElement submitButton = driver.findElement(By.id("submit"));
+//        WebElement submitButton = driver.findElement(By.id("submit"));
+        WebElement submitButton = driver.findElement(By.xpath("//button[@id='submit']"));
         submitButton.click();
 
-        WebElement pargraphUserName = driver.findElement(By.id("name"));
+//        WebElement pargraphUserName = driver.findElement(By.id("name"));
+        WebElement pargraphUserName = driver.findElement(By.xpath("//p[@id='name']"));
         actualUserName = pargraphUserName.getText();
 
-        WebElement paragraphUserEmail = driver.findElement(By.id("email"));
+        WebElement paragraphUserEmail = driver.findElement(By.xpath("//p[@id='email']"));
         actualEmail = paragraphUserEmail.getText();
 
         Assert.assertTrue(
