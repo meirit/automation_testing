@@ -8,32 +8,43 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 
 public class SeleniumEasyBasicFirstForm {
 
-    String inputMessage = "Meirita Serdikauskaite";
-    String expectedMessage = "Meirita Serdikauskaite";
-    String actualMessage;
+    private WebDriver driver;
 
-    @Test
-
-    public void testSingleInputField(){
-
+    @BeforeMethod
+    public void setUp(){
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
 
 
-        WebDriver driver = new ChromeDriver(options);
+        driver = new ChromeDriver(options);
 
 //        driver.get("chrome://settings/");
 //        ((JavascriptExecutor) driver).executeScript("chrome.settingsPrivate.setDefaultZoom(0.5)");
 
         driver.get("https://demo.seleniumeasy.com/basic-first-form-demo.html");
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    }
+
+
+
+    @Test
+
+    public void testSingleInputField(){
+
+        String inputMessage = "Meirita Serdikauskaite";
+        String expectedMessage = "Meirita Serdikauskaite";
+        String actualMessage;
+
+
 
 //        WebElement inputUserMessage = driver.findElement(By.id("user-message"));
         WebElement inputUserMessage = driver.findElement(By.xpath("//input[@id='user-message']"));
@@ -55,6 +66,10 @@ public class SeleniumEasyBasicFirstForm {
 
 
 
+    }
+    @AfterMethod
+    public void tearDown (){
+        driver.quit();
     }
 
 }
