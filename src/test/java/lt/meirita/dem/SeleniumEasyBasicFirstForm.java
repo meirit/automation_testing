@@ -67,6 +67,38 @@ public class SeleniumEasyBasicFirstForm {
 
 
     }
+    @Test
+    public void testPositiveTwoInputFieldsProviding9And13(){
+
+        String value1 = "9";
+        String value2 = "13";
+        String actualTotal;
+        String expectedTotal= "22";
+
+
+
+        WebElement inputValue1 = driver.findElement(By.xpath("//input[@id='value1']"));
+        inputValue1.sendKeys(value1);
+
+        WebElement inputValue2 = driver.findElement(By.xpath("//input[@id='value2']"));
+        inputValue2.sendKeys(value2);
+
+        WebElement clickGetTotal = driver.findElement(By.xpath("//button[@onclick='return total()']"));
+        clickGetTotal.click();
+
+        WebElement displayTotal = driver.findElement(By.xpath("//span[@id='displayvalue']"));
+        actualTotal = displayTotal.getText();
+
+        Assert.assertTrue(
+                actualTotal.contains(expectedTotal),
+                "\nActual: %s, \nExpected: %s".formatted(actualTotal, expectedTotal)
+        );
+
+    }
+    @Test
+    public void testNegativeTwoInputFieldsProvidingAndSpace(){
+
+    }
     @AfterMethod
     public void tearDown (){
         driver.quit();
