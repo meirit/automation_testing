@@ -7,24 +7,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 
 public class DemoQATextBox {
-    String userName= "Vardenis Pavardenis";
-    String email = "demo@demo.com";
-    String expectedUserName = "Vardenis Pavardenis";
-    String expectedEmail= "demo@demo.com";
-    String actualUserName;
-    String actualEmail;
+    private WebDriver driver;
 
-
-
-    @Test
-    public void test(){
+    @BeforeMethod
+    public void setUP() {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
@@ -33,7 +27,7 @@ public class DemoQATextBox {
 //        options.addArguments("--headless=new");
 //        options.addArguments("--window-size=1400,600");
 
-        WebDriver driver = new ChromeDriver(options);
+        driver = new ChromeDriver(options);
 
         driver.get("chrome://settings/");
         ((JavascriptExecutor) driver).executeScript("chrome.settingsPrivate.setDefaultZoom(0.5)");
@@ -43,6 +37,16 @@ public class DemoQATextBox {
 //        JavascriptExecutor executor = (JavascriptExecutor)driver;
 //        executor.executeScript("document.body.style.zoom = '0.75'");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    }
+
+    @Test
+    public void test() {
+        String userName = "Vardenis Pavardenis";
+        String email = "demo@demo.com";
+        String expectedUserName = "Vardenis Pavardenis";
+        String expectedEmail = "demo@demo.com";
+        String actualUserName;
+        String actualEmail;
 
 //        WebElement inputfullName = driver.findElement(By.id("userName"));
         WebElement inputfullName = driver.findElement(By.xpath("//input[@id='userName']"));
@@ -84,5 +88,10 @@ public class DemoQATextBox {
 //        Actions actions = new Actions(driver);
 //        actions.moveToElement(element).click().build().perform();
 
+    }
+
+    @AfterMethod
+    public void tearDown() {
+        driver.quit();
     }
 }
