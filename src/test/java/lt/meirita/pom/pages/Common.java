@@ -42,7 +42,7 @@ public class Common {
         getElement(locator).sendKeys(text);
     }
 
-    public String getTextFromElement(By locator){
+    public static String getTextFromElement(By locator){
         return getElement(locator).getText();
     }
 
