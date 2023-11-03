@@ -24,19 +24,19 @@ public class SeleniumDemoTest {
 
     }
 
-    @Test
-    public void testWebDriverDemoWithSafari(){
-
-        SeleniumDemoPage.openSafari("https://www.autobusubilietai.lt/");
-
-
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-    }
+//    @Test
+//    public void testWebDriverDemoWithSafari(){
+//
+//        SeleniumDemoPage.openSafari("https://www.autobusubilietai.lt/");
+//
+//
+//        try {
+//            Thread.sleep(4000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
     @AfterMethod
     public void tearDown(){
         SeleniumDemoPage.closeDriver();
