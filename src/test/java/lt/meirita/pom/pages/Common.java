@@ -75,4 +75,12 @@ public class Common {
                 ExpectedConditions.visibilityOfElementLocated(locator)
         );
     }
+
+    public static boolean isElementSelected(By locator) {
+        return getElement(locator).isSelected();
+    }
+
+    public static boolean isElementEnabled(By locator) {
+        return getElement(locator).isEnabled();
+    }
 }
