@@ -14,6 +14,7 @@ public class Driver {
 
     public static void setChromeDriver() {
         WebDriverManager.chromedriver().setup();
+        System.setProperty("webdriver.http.factory", "jdk-http-client");
 
         ChromeOptions options = new ChromeOptions();
 
