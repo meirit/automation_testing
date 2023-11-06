@@ -2,6 +2,7 @@ package lt.meirita.pom.tests.selenium_easy;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import lt.meirita.pom.pages.selenium_easy.BasicFirstFromPage;
+import lt.meirita.pom.tests.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -15,10 +16,11 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class BasicFirstFormTest {
+public class BasicFirstFormTest extends TestBase {
 
 
     @BeforeMethod
+    @Override
     public void setUp() {
 
         BasicFirstFromPage.openChrome("https://demo.seleniumeasy.com/basic-first-form-demo.html");
@@ -79,10 +81,6 @@ public class BasicFirstFormTest {
 
     }
 
-    @AfterMethod
-    public void tearDown() {
-        BasicFirstFromPage.closeDriver();
-    }
 }
 
 

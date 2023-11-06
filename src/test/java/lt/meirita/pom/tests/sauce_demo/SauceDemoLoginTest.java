@@ -1,25 +1,16 @@
 package lt.meirita.pom.tests.sauce_demo;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import lt.meirita.pom.pages.sauce_demo.SauceDemoPage;
-import lt.meirita.pom.pages.selenium_easy.BasicFirstFromPage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import lt.meirita.pom.tests.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
-
-public class SauceDemoLogin1 {
+public class SauceDemoLoginTest extends TestBase {
 
     @BeforeMethod
+    @Override
     public void setUp(){
 
         SauceDemoPage.openChrome("https://www.saucedemo.com/");
@@ -60,10 +51,7 @@ public class SauceDemoLogin1 {
 
     }
 
-    @AfterMethod
-    public void tearDown() {
-        SauceDemoPage.closeDriver();
-    }
+
 
 
 }
