@@ -31,4 +31,20 @@ public class BasicFirstFromPage {
     public static String readUserMessage() {
         return Common.getTextFromElement(By.xpath("//div[@id='user-message']//span"));
     }
+
+    public static void enterValue(String attributeId, String value) {
+        Common.sendKeysToElement(
+                By.xpath("//input[@id='%s']".formatted(attributeId)),
+                value
+
+        );
+    }
+
+    public static void clickOnButtonGetTotal() {
+        Common.clickOnElement(By.xpath("//button[@onclick='return total()']"));
+    }
+
+    public static String readMessageTotal() {
+        return Common.getTextFromElement(By.xpath("//span[@id='displayvalue']"));
+    }
 }

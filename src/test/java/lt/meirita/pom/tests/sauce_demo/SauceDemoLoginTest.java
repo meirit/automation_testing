@@ -24,7 +24,7 @@ public class SauceDemoLoginTest extends TestBase {
     public void testingLoginSimpleUser(){
         String userName = "standard_user";
         String password ="secret_sauce";
-        String expectedText="Swag Labs";
+        String expectedText= "Swag Labs";
         String actualText;
 
 
@@ -33,18 +33,8 @@ public class SauceDemoLoginTest extends TestBase {
         SauceDemoPage.clickOnButtonLogin();
         actualText = SauceDemoPage.getMessage();
 
-
-
-
-
-
-
-//        WebElement divSvagLab = driver.findElement(By.xpath("//div[text()='Swag Labs' and @class='app_logo']"));
-
 //        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(8));
 //        wait.until(ExpectedConditions.visibilityOf(divSvagLab));
-
-//        actualText = divSvagLab.getText();
 
         Assert.assertEquals(actualText, expectedText);
 

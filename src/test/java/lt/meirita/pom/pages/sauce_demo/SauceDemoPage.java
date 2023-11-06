@@ -30,8 +30,7 @@ public class SauceDemoPage {
     }
 
     public static String getMessage() {
-        Common.getTextFromElement(By.xpath("//div[text()='Swag Labs' and @class='app_logo']"));
-        return null;
+        return Common.getTextFromElement(By.xpath("//div[text()='Swag Labs' and @class='app_logo']"));
     }
 
     public static void closeDriver() {
