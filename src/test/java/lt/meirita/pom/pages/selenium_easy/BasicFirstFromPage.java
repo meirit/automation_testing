@@ -1,6 +1,7 @@
 package lt.meirita.pom.pages.selenium_easy;
 
 import lt.meirita.pom.pages.Common;
+import lt.meirita.pom.pages.Locator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -17,34 +18,34 @@ public class BasicFirstFromPage {
     public static void writeUserMessage(String text) {
 
         Common.sendKeysToElement(
-                By.xpath("//input[@id='user-message']"),
+                Locator.SeleniumEasy.BasicFirstForm.inputUserMessage,
                 text
         );
     }
 
     public static void clickOnButtonShowMessage() {
 
-        Common.clickOnElement(By.xpath("//button[@onclick='showInput();']"));
+        Common.clickOnElement(Locator.SeleniumEasy.BasicFirstForm.buttonShowMessage);
+
 
     }
 
     public static String readUserMessage() {
-        return Common.getTextFromElement(By.xpath("//div[@id='user-message']//span"));
+        return Common.getTextFromElement(Locator.SeleniumEasy.BasicFirstForm.readUserMessage);
     }
 
     public static void enterValue(String attributeId, String value) {
-        Common.sendKeysToElement(
-                By.xpath("//input[@id='%s']".formatted(attributeId)),
+        Common.sendKeysToElement(Locator.SeleniumEasy.BasicFirstForm.setValueById(attributeId),
                 value
 
         );
     }
 
     public static void clickOnButtonGetTotal() {
-        Common.clickOnElement(By.xpath("//button[@onclick='return total()']"));
+        Common.clickOnElement(Locator.SeleniumEasy.BasicFirstForm.buttonGetTotal);
     }
 
     public static String readMessageTotal() {
-        return Common.getTextFromElement(By.xpath("//span[@id='displayvalue']"));
+        return Common.getTextFromElement(Locator.SeleniumEasy.BasicFirstForm.displayValue);
     }
 }

@@ -1,6 +1,7 @@
 package lt.meirita.pom.pages.selenium_easy;
 
 import lt.meirita.pom.pages.Common;
+import lt.meirita.pom.pages.Locator;
 import org.openqa.selenium.By;
 
 import java.util.List;
@@ -12,35 +13,31 @@ public class BasicCheckBoxPage {
     }
 
     public static void checkOnCheckBox() {
-        Common.clickOnElement(
-                By.xpath(
-                        "//input[@id='isAgeSelected']"
-                )
-        );
+        Common.clickOnElement(Locator.SeleniumEasy.BasicCheckBox.inputIsAgeSelected);
     }
 
     public static String readSingleCheckBoxMessage() {
-        return Common.getTextFromElement(By.xpath("//div[@id='txtAge']"));
+        return Common.getTextFromElement(Locator.SeleniumEasy.BasicCheckBox.divTxtAge);
     }
 
     public static boolean checkDefaultSelected() {
         return Common.isElementSelected(
-                By.xpath("(//form//input[@type='checkbox'])[2]")
+                Locator.SeleniumEasy.BasicCheckBox.CheckBoxDefaultSelected
+
         );
     }
 
     public static boolean checkDefaultEnabled() {
         return Common.isElementEnabled(
-                By.xpath("(//form//input[@type='checkbox'])[3]")
-        );
+                Locator.SeleniumEasy.BasicCheckBox.CheckBoxDefaultEnabled);
     }
 
     public static void clickOnButtonCheckAll() {
-        Common.clickOnElement(By.xpath("//input[@id='check1']"));
+        Common.clickOnElement(Locator.SeleniumEasy.BasicCheckBox.buttonCheckAll);
     }
 
     public static boolean checkStatusesOfCheckBoxGroup(boolean expectedStatus) {
-        List<Boolean> statuses = Common.getStatusesOfElements(By.xpath("//input[@class='cb1-element']"));
+        List<Boolean> statuses = Common.getStatusesOfElements(Locator.SeleniumEasy.BasicCheckBox.checkBoxMultiple);
 
         for (Boolean status : statuses) {
             if(status != expectedStatus) return false;
@@ -51,8 +48,7 @@ public class BasicCheckBoxPage {
     }
 
     public static String getButtonAttributeValue(String attributeName) {
-        return Common.getElementAttributeValue(
-                By.xpath("//input[@id='check1']"),
+        return Common.getElementAttributeValue(Locator.SeleniumEasy.BasicCheckBox.buttonCheckAll,
                 attributeName
         );
     }
