@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -82,5 +83,20 @@ public class Common {
 
     public static boolean isElementEnabled(By locator) {
         return getElement(locator).isEnabled();
+    }
+
+    public static List<Boolean> getStatusesOfElements(By locator) {
+        List<WebElement> elements = getElements(locator);
+        List<Boolean> statuses = new ArrayList<>();
+
+        for (WebElement element : elements) {
+            statuses.add(element.isSelected());
+        }
+
+        return statuses;
+    }
+
+    public static String getElementAttributeValue(By locator, String attributeName) {
+        return getElement(locator).getAttribute(attributeName);
     }
 }
