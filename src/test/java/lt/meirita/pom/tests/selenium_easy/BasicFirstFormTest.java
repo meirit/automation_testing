@@ -12,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
@@ -48,13 +49,22 @@ public class BasicFirstFormTest extends TestBase {
 
     }
 
-    @Test
-    public void testPositiveTwoInputFieldsProviding9And13() {
+    @DataProvider(name ="twoInputFields")
+    public Object[][] provideDataForTwoInputFields(){
+        return new Object[][]{
+                {"9", "13", "22"},
+                {"92","18", "110"},
+                {"0", "0", "0"},
+                {" ", "2", "NaN"},
+                {"-5", "asdf", "NaN"},
+                {" ", " ", "NaN"},
+        };
+    }
 
-        String value1 = "9";
-        String value2 = "13";
+    @Test(dataProvider = "twoInputFields")
+    public void testTwoInputFields(String value1,String value2, String expectedTotal ) {
+
         String actualTotal;
-        String expectedTotal = "22";
 
 
 

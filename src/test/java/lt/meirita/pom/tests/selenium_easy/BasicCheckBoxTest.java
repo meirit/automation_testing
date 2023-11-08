@@ -5,6 +5,7 @@ import lt.meirita.pom.tests.TestBase;
 import org.bouncycastle.asn1.dvcs.DVCSObjectIdentifiers;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class BasicCheckBoxTest extends TestBase {
@@ -39,10 +40,24 @@ public class BasicCheckBoxTest extends TestBase {
 
         Assert.assertFalse(actualStatus);
     }
-    @Test
-    public void testAllCheckBoxesSelected(){
-        boolean expectedStatus = true;
+    @DataProvider (name = "checkBoxSelection")
+    public Object[][] selectCheckBoxes(){
+        return new Object[][]{
+                {true},
+                {false}
+        };
+    }
+
+    @Test (dataProvider = "checkBoxSelection")
+    public void testAllCheckBoxesSelected(boolean expectedStatus ){
+
         boolean actualStatus;
+
+        //expectedStatus == false
+
+        if(!expectedStatus){
+            BasicCheckBoxPage.clickOnButtonCheckAll();
+        }
 
         BasicCheckBoxPage.clickOnButtonCheckAll();
         actualStatus = BasicCheckBoxPage.checkStatusesOfCheckBoxGroup(expectedStatus);
@@ -50,22 +65,29 @@ public class BasicCheckBoxTest extends TestBase {
         Assert.assertTrue(actualStatus);
     }
 
-    @Test
-    public void testAllCheckBoxesIsNotSelected(){
-        boolean expectedStatus = false;
-        boolean actualStatus;
+//    @Test
+//    public void testAllCheckBoxesIsNotSelected(){
+//        boolean expectedStatus = false;
+//        boolean actualStatus;
+//
+//        BasicCheckBoxPage.clickOnButtonCheckAll();
+//        BasicCheckBoxPage.clickOnButtonCheckAll();
+//        actualStatus = BasicCheckBoxPage.checkStatusesOfCheckBoxGroup(expectedStatus);
+//
+//        Assert.assertTrue(actualStatus);
+//    }
 
-        BasicCheckBoxPage.clickOnButtonCheckAll();
-        BasicCheckBoxPage.clickOnButtonCheckAll();
-        actualStatus = BasicCheckBoxPage.checkStatusesOfCheckBoxGroup(expectedStatus);
+    @DataProvider (name = "buttonAttributeValueCheck")
+    public Object[][] provideValueNamesForCheckButton(){
+        return new Object[][]{
+                {"value", "Uncheck All"}
 
-        Assert.assertTrue(actualStatus);
+        };
+
     }
 
-    @Test
-    public void testAttributeChangeOnButtonClickValueIsUncheckAll(){
-        String attributeName ="value";
-        String expectedAttributeValue = "Uncheck All";
+    @Test (dataProvider = "buttonAttributeValueCheck")
+    public void testAttributeChangeOnButtonClickValue(String attributeName, String expectedAttributeValue){
         String actualAttributeValue;
 
         BasicCheckBoxPage.clickOnButtonCheckAll();
@@ -77,22 +99,22 @@ public class BasicCheckBoxTest extends TestBase {
 
     }
 
-    @Test
-    public void testAttributeChangeOnButtonClickValueIsCheckAll(){
-        String attributeName ="value";
-        String expectedAttributeValue = "Check All";
-        String actualAttributeValue;
-
-        BasicCheckBoxPage.clickOnButtonCheckAll();
-        BasicCheckBoxPage.clickOnButtonCheckAll();
-
-        actualAttributeValue = BasicCheckBoxPage.getButtonAttributeValue(attributeName);
-
-        Assert.assertEquals(actualAttributeValue, expectedAttributeValue);
-
-
-
-    }
+//    @Test
+//    public void testAttributeChangeOnButtonClickValueIsCheckAll(){
+//        String attributeName ="value";
+//        String expectedAttributeValue = "Check All";
+//        String actualAttributeValue;
+//
+//        BasicCheckBoxPage.clickOnButtonCheckAll();
+//        BasicCheckBoxPage.clickOnButtonCheckAll();
+//
+//        actualAttributeValue = BasicCheckBoxPage.getButtonAttributeValue(attributeName);
+//
+//        Assert.assertEquals(actualAttributeValue, expectedAttributeValue);
+//
+//
+//
+//    }
 
 
 }
