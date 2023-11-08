@@ -6,6 +6,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -98,5 +99,18 @@ public class Common {
 
     public static String getElementAttributeValue(By locator, String attributeName) {
         return getElement(locator).getAttribute(attributeName);
+    }
+
+    public static void selectOptionByValue(By locator, String selectValue) {
+        getSelect(locator).selectByValue(selectValue);
+
+    }
+    private static Select getSelect(By locator) {
+        return new Select(getElement(locator));
+    }
+
+    public static void selectOptionByIndex(By locator, int index) {
+        getSelect(locator).selectByIndex(index);
+
     }
 }

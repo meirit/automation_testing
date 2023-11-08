@@ -25,6 +25,12 @@ public class Locator {
                 return By.xpath("//input[@id='%s']".formatted(attributeId));
             }
         }
+
+        public static class BasicSelectDropdown {
+            public static By selectDayOfWeek = By.xpath("//select[@id='select-demo']");
+            public static By paragraphSelectedDay = By.xpath("//p[@class='selected-value']");
+            public static By selectState= By.xpath("//select[@id='multi-select']");
+        }
     }
 
     public static class DemoQa {

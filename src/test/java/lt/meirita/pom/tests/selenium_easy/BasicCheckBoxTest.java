@@ -41,7 +41,7 @@ public class BasicCheckBoxTest extends TestBase {
         Assert.assertFalse(actualStatus);
     }
     @DataProvider (name = "checkBoxSelection")
-    public Object[][] selectCheckBoxes(){
+    public Object[][] provideDataCheckBoxGroup(){
         return new Object[][]{
                 {true},
                 {false}
