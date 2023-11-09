@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test Selenium" parallel="methods" thread-count="2">
+    <test name="Demo Test">
+        <classes>
+            <class name="lt.meirita.pom.tests.selenium_easy.BasicRadioButtonTest"/>
+            <class name="lt.meirita.pom.tests.selenium_easy.BasicCheckBoxTest"/>
+            <class name="lt.meirita.pom.tests.selenium_easy.BasicFirstFormTest"/>
+            <class name="lt.meirita.pom.tests.demo_qa.TextBoxTest"/>
+        </classes>
+    </test>
+</suite>

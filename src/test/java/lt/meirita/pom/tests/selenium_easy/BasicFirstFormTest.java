@@ -49,7 +49,7 @@ public class BasicFirstFormTest extends TestBase {
 
     }
 
-    @DataProvider(name ="twoInputFields")
+    @DataProvider(name ="twoInputFields", parallel = true)
     public Object[][] provideDataForTwoInputFields(){
         return new Object[][]{
                 {"9", "13", "22"},
@@ -61,7 +61,7 @@ public class BasicFirstFormTest extends TestBase {
         };
     }
 
-    @Test(dataProvider = "twoInputFields")
+    @Test(dataProvider = "twoInputFields", threadPoolSize = 2)
     public void testTwoInputFields(String value1,String value2, String expectedTotal ) {
 
         String actualTotal;

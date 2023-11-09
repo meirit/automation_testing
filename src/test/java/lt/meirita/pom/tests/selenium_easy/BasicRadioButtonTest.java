@@ -17,7 +17,7 @@ public class BasicRadioButtonTest extends TestBase {
     public Object[][] provideDataButtonRadio() {
         return new Object[][]{
                 {"Male", "Male"},
-                {"Femaleee","Female"}
+                {"Female","Female"}
 
 
         };

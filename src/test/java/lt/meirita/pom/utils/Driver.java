@@ -10,7 +10,8 @@ import org.openqa.selenium.safari.SafariDriver;
 import java.time.Duration;
 
 public class Driver {
-    private static WebDriver driver;
+//    private static WebDriver driver
+    private static ThreadLocal<WebDriver> drivers = new ThreadLocal<>();
 
     public static void setChromeDriver() {
         WebDriverManager.chromedriver().setup();
@@ -20,22 +21,32 @@ public class Driver {
 
         options.addArguments("--start-maximized");
 
-        driver = new ChromeDriver(options);
+//        driver = new ChromeDriver(options);
 
-        driver.get("chrome://settings/");
-        ((JavascriptExecutor) driver).executeScript("chrome.settingsPrivate.setDefaultZoom(0.7)");
+        drivers.set(new ChromeDriver(options));
+
+        drivers.get().get("chrome://settings/");
+        ((JavascriptExecutor) drivers.get()).executeScript("chrome.settingsPrivate.setDefaultZoom(0.7)");
+
+//        drivers.get().manage().timeouts().implicitlyWait(8);
     }
     public static void setSafariDriver() {
         WebDriverManager.safaridriver().setup();
-        driver = new SafariDriver();
+        drivers.set(new SafariDriver());
     }
 
     public static WebDriver getDriver() {
-        return driver;
+
+//        return driver;
+
+        return drivers.get();
     }
 
     public static void quitDriver(){
-        driver.quit();
+
+//        driver.quit();
+        drivers.get().quit();
+        drivers.remove();
     }
 
 }
