@@ -31,6 +31,16 @@ public class Locator {
             public static By paragraphSelectedDay = By.xpath("//p[@class='selected-value']");
             public static By selectState= By.xpath("//select[@id='multi-select']");
         }
+
+        public static class BasicRadioButton {
+
+            public static By buttonGetValue= By.xpath("//button[@id='buttoncheck']");
+            public static By paragraphCheckedValue =By.xpath("//p[@class='radiobutton']");
+
+            public static By setGenderRadioButton(String selectedValue) {
+                return By.xpath("//input[@value='%s' and @name='optradio']".formatted(selectedValue));
+            }
+        }
     }
 
     public static class DemoQa {
