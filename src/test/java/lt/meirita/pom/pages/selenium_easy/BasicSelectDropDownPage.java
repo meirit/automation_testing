@@ -30,8 +30,21 @@ public class BasicSelectDropDownPage {
     }
 
     public static void selectStateArrayFromDropdownList(String[] selectStates) {
-        for (String state : selectStates) {
-            selectStateFromDropdownList(state);
-        }
+//        for (String state : selectStates) {
+//            selectStateFromDropdownList(state);
+//        }
+        Common.multipleSelectWithActions(
+                Locator.SeleniumEasy.BasicSelectDropdown.selectState,
+                selectStates
+
+        );
+    }
+
+    public static String readMessageOfMultipleDropdownList() {
+        return Common.getTextFromElement(Locator.SeleniumEasy.BasicSelectDropdown.paragraphMultipleResults);
+    }
+
+    public static void clickOnButtonMultipleList() {
+        Common.clickOnElement(Locator.SeleniumEasy.BasicSelectDropdown.buttonGetAllSelected);
     }
 }

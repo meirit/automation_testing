@@ -1,10 +1,7 @@
 package lt.meirita.pom.pages;
 
 import lt.meirita.pom.utils.Driver;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -135,6 +132,26 @@ public class Common {
                 .perform();
 
 
+
+    }
+
+    public static void multipleSelectWithActions(By locator, String[] values) {
+
+        List<WebElement> elements = getSelect(locator).getOptions();
+        Actions actions = getActions();
+        actions.keyDown(Keys.COMMAND);
+
+        for (WebElement element : elements) {
+            String actual = element.getAttribute("value");
+            for (String value : values) {
+                if(actual.equals(value)) {
+                    actions.click(element);
+                }
+
+            }
+
+        }
+        actions.perform();
 
     }
 }

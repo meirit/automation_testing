@@ -63,20 +63,29 @@ public class BasicSelectDropDownTest extends TestBase {
 
         BasicSelectDropDownPage.selectStateArrayFromDropdownList(states);
 
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+//        try {
+//            Thread.sleep(3000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+
+        BasicSelectDropDownPage.clickOnButtonMultipleList();
+
+        actualResult = BasicSelectDropDownPage.readMessageOfMultipleDropdownList();
+
+        for (String state : states) {
+
+            Assert.assertTrue(
+                    actualResult.contains(state),
+                    "\nActual: %s, \nExpected: %s".formatted(
+                            actualResult, state
+                    )
+            );
+
+
         }
 
-//        actualResult = BasicSelectDropDownPage.readMessageOfSingleDropdownList();
 
-//        Assert.assertTrue(
-//                actualResult.contains(expectedResult),
-//                "\nActual: %s, \nExpected: %s".formatted(
-//                        actualResult, expectedResult
-//                )
-//        );
 
     }
 }

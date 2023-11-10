@@ -30,6 +30,8 @@ public class Locator {
             public static By selectDayOfWeek = By.xpath("//select[@id='select-demo']");
             public static By paragraphSelectedDay = By.xpath("//p[@class='selected-value']");
             public static By selectState= By.xpath("//select[@id='multi-select']");
+            public static By paragraphMultipleResults= By.xpath("//p[@class='getall-selected']");
+            public static By buttonGetAllSelected = By.xpath("//button[@id='printAll']");
         }
 
         public static class BasicRadioButton {
