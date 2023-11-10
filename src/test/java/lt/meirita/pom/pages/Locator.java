@@ -59,5 +59,13 @@ public class Locator {
                 return By.xpath("//p[@id='%s']".formatted(attributeId));
             }
         }
+
+        public static class Buttons {
+
+            public static By buttonDoubleClick= By.xpath("//button[@id='doubleClickBtn']");
+            public static By paragraphDoubleClick = By.xpath("//p[@id='doubleClickMessage']");
+            public static By buttonRightClick= By.xpath("//button[@id='rightClickBtn']");
+            public static By paragraphRightClick = By.xpath("//p[@id='rightClickMessage']");
+        }
     }
 }
