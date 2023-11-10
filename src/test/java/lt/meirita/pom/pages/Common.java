@@ -154,4 +154,15 @@ public class Common {
         actions.perform();
 
     }
+    public static void acceptAlert(){
+        Driver.getDriver().switchTo().alert().accept();
+    }
+
+    public static String getTextFromAlertBox() {
+        return Driver.getDriver().switchTo().alert().getText();
+    }
+
+    public static void sendKeysToAlert(String message) {
+        Driver.getDriver().switchTo().alert().sendKeys(message);
+    }
 }

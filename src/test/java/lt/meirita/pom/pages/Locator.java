@@ -4,6 +4,9 @@ import org.openqa.selenium.By;
 
 public class Locator {
     public static class SeleniumEasy {
+
+
+
         public static class BasicCheckBox {
             public static By inputIsAgeSelected = By.xpath("//input[@id='isAgeSelected']");
             public static By divTxtAge = By.xpath("//div[@id='txtAge']");
@@ -43,7 +46,15 @@ public class Locator {
                 return By.xpath("//input[@value='%s' and @name='optradio']".formatted(selectedValue));
             }
         }
+
+        public static class JavaScriptAlertBox {
+            public static By buttonOpenAlertBox= By.xpath("//button[@onclick='myAlertFunction()']");
+            public static By buttonOpenPromtBox = By.xpath("//button[@onclick='myPromptFunction()']");
+            public static By paragraphPromptBox = By.xpath("//p[@id='prompt-demo']");
+        }
     }
+
+
 
     public static class DemoQa {
         public static class TextBox {
